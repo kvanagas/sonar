@@ -16,6 +16,7 @@
 		1456A937192DA19CDDDE1561 /* TempoAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D1A9C3D689AD69009D4F95 /* TempoAnalyzer.swift */; };
 		153F6ED5EE3FA718A4D9BA61 /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FA5EBBCC210A08E4151EED /* StatusItemController.swift */; };
 		1EADE06CF02223F239DCEF6A /* MatchScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1E67FB7018FA6A1B7A5D /* MatchScheduler.swift */; };
+		2317CDD714AFE68B05C4E8F9 /* NotchLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA304EECD0E518A2279F5022 /* NotchLayout.swift */; };
 		26B5AA210D50449372F8A7B5 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 0FEB9122AF5219DBB49F8DF7 /* Sparkle */; };
 		29A3E8C3A2D99E29F239FB06 /* TempoEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F598E64A830AFDC9D8F3A /* TempoEstimator.swift */; };
 		2D02AE16E339EBBF49112A26 /* TempoAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D1A9C3D689AD69009D4F95 /* TempoAnalyzer.swift */; };
@@ -36,10 +37,13 @@
 		7A4668357AB918D37ACC6501 /* BeatClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C56264C6E953E92851DBC5 /* BeatClockTests.swift */; };
 		80415EF7A0DC00F561442033 /* BPMEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A079A79626D309B0C27C2256 /* BPMEngine.swift */; };
 		85F3CFAE152D825520F93080 /* BeatPhaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D087B40AFAFD2593BDAF819 /* BeatPhaseTests.swift */; };
+		86E439F8AC19A9003D578A7C /* NotchLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D83A3E53CAF7D1463BA2F7 /* NotchLayoutTests.swift */; };
 		9A8A5A62B35394D0AADC1E0C /* MatchSchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ADFED5159611CBC288F2C9 /* MatchSchedulerTests.swift */; };
 		9D5F3F394C5C98905986792C /* SongMatchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE7F347B1413A6CBFFFB47 /* SongMatchingTests.swift */; };
 		A423C6B8D00AAD37FDA5DD96 /* TrackStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60CC9BBDE1B7A3D7E27914 /* TrackStore.swift */; };
+		A440D636D912263B77B9ACE0 /* NotchLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA304EECD0E518A2279F5022 /* NotchLayout.swift */; };
 		A8458CB2D3ADAB1C12C91B34 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B159DEAB2A955B1483A2B32C /* RingBuffer.swift */; };
+		B0AC11940E0806AF26C984ED /* NotchBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0284EDA4835F0ECE9697F7 /* NotchBanner.swift */; };
 		BA5F59D231C7F11026A55976 /* TrackStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCA418A5A08F4FD20ACA950 /* TrackStoreTests.swift */; };
 		C08B98F00272CA58789D4E85 /* MatchScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1E67FB7018FA6A1B7A5D /* MatchScheduler.swift */; };
 		C1B2C57913BE382CB44657D8 /* TempoEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F598E64A830AFDC9D8F3A /* TempoEstimator.swift */; };
@@ -60,6 +64,7 @@
 		0A0B1E67FB7018FA6A1B7A5D /* MatchScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchScheduler.swift; sourceTree = "<group>"; };
 		0FCA418A5A08F4FD20ACA950 /* TrackStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackStoreTests.swift; sourceTree = "<group>"; };
 		259DD10C079D86F71D2FAA66 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		28D83A3E53CAF7D1463BA2F7 /* NotchLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchLayoutTests.swift; sourceTree = "<group>"; };
 		2B7C19357F8DDBAE431FF001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		37E88995BAC0C834B5911672 /* AudioProcessList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioProcessList.swift; sourceTree = "<group>"; };
 		48DE7F347B1413A6CBFFFB47 /* SongMatchingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongMatchingTests.swift; sourceTree = "<group>"; };
@@ -80,6 +85,7 @@
 		C86A1C8F687527F21F4F048F /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		C8EFF032B5FC13F5FFDA8EC0 /* OnsetDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnsetDetector.swift; sourceTree = "<group>"; };
 		CB60CC9BBDE1B7A3D7E27914 /* TrackStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackStore.swift; sourceTree = "<group>"; };
+		CF0284EDA4835F0ECE9697F7 /* NotchBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchBanner.swift; sourceTree = "<group>"; };
 		D44B02D4A752126AC0436227 /* SystemAudioTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAudioTap.swift; sourceTree = "<group>"; };
 		D6D1A9C3D689AD69009D4F95 /* TempoAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempoAnalyzer.swift; sourceTree = "<group>"; };
 		DFC47070B6B992C81F42B873 /* SyntheticAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntheticAudio.swift; sourceTree = "<group>"; };
@@ -88,6 +94,7 @@
 		E8FA5EBBCC210A08E4151EED /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		EB23BED19C2CAEA3D8D9B24A /* StatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
 		F1EF64042C048827D2DBF377 /* BeatClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatClock.swift; sourceTree = "<group>"; };
+		FA304EECD0E518A2279F5022 /* NotchLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchLayout.swift; sourceTree = "<group>"; };
 		FBCDBA8A850047173492B69E /* Sonar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sonar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD489076AC629117289D8B81 /* BrowserPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserPageTests.swift; sourceTree = "<group>"; };
 		FF70443412C0145A0BD084EF /* Sonar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sonar.entitlements; sourceTree = "<group>"; };
@@ -134,6 +141,7 @@
 				7D087B40AFAFD2593BDAF819 /* BeatPhaseTests.swift */,
 				FD489076AC629117289D8B81 /* BrowserPageTests.swift */,
 				E7ADFED5159611CBC288F2C9 /* MatchSchedulerTests.swift */,
+				28D83A3E53CAF7D1463BA2F7 /* NotchLayoutTests.swift */,
 				E57141C18D1D28227EBAE9CF /* NowPlayingTests.swift */,
 				8D5190B748EB02FBC11F4698 /* PerformanceTests.swift */,
 				48DE7F347B1413A6CBFFFB47 /* SongMatchingTests.swift */,
@@ -196,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				FFB33D3E55E73CB6DAC58F09 /* GlobalHotKey.swift */,
+				CF0284EDA4835F0ECE9697F7 /* NotchBanner.swift */,
+				FA304EECD0E518A2279F5022 /* NotchLayout.swift */,
 				EB23BED19C2CAEA3D8D9B24A /* StatusBarView.swift */,
 			);
 			path = UI;
@@ -326,6 +336,8 @@
 				4FF19BE1DE340C607431A464 /* BrowserPageTests.swift in Sources */,
 				1EADE06CF02223F239DCEF6A /* MatchScheduler.swift in Sources */,
 				9A8A5A62B35394D0AADC1E0C /* MatchSchedulerTests.swift in Sources */,
+				2317CDD714AFE68B05C4E8F9 /* NotchLayout.swift in Sources */,
+				86E439F8AC19A9003D578A7C /* NotchLayoutTests.swift in Sources */,
 				4DB2C80DE5147ED23AD8DFAD /* NowPlayingMonitor.swift in Sources */,
 				F38E6640090045C94520659D /* NowPlayingTests.swift in Sources */,
 				5DDA6A9B2FE413E662263214 /* OnsetDetector.swift in Sources */,
@@ -356,6 +368,8 @@
 				396BBB767D916B0BF19CCF7F /* GlobalHotKey.swift in Sources */,
 				3071B1242EBC3DC132B7A2D8 /* HistoryView.swift in Sources */,
 				C08B98F00272CA58789D4E85 /* MatchScheduler.swift in Sources */,
+				B0AC11940E0806AF26C984ED /* NotchBanner.swift in Sources */,
+				A440D636D912263B77B9ACE0 /* NotchLayout.swift in Sources */,
 				77097D0D86FDA0581663754F /* NowPlayingMonitor.swift in Sources */,
 				74DA7CF8721BC0597E2F26E4 /* OnsetDetector.swift in Sources */,
 				78D30CB0F2CEF556F8794682 /* RingBuffer.swift in Sources */,
