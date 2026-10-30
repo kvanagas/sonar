@@ -12,6 +12,7 @@ final class StatusItemController: NSObject {
     private static let targetKey = "captureTargetBundleID"
     private static let identifyKey = "identifyWithShazam"
     private static let browserPageKey = "saveBrowserPage"
+    private static let notchKey = "showSongsInNotch"
     private static let recentCount = 10
     /// Seconds of audio before re-checking a match that contradicts the current song.
     private static let confirmDelay = 10.0
@@ -24,6 +25,7 @@ final class StatusItemController: NSObject {
     private let nowPlaying = NowPlayingMonitor()
     private let store = TrackStore()
     private let historyWindow = HistoryWindowController()
+    private let notchBanner = NotchBanner()
     /// Checks the GitHub release feed daily (SUFeedURL in Info.plist) and offers updates.
     private let updater = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
     /// The confirmed Shazam match; cleared when a strong signal says the song changed.
@@ -40,6 +42,7 @@ final class StatusItemController: NSObject {
     private let identifyStatusMenuItem = NSMenuItem(title: "", action: nil, keyEquivalent: "")
     private let identifyMenuItem = NSMenuItem(title: "Identify Songs with Shazam", action: #selector(toggleIdentify), keyEquivalent: "")
     private let browserPageMenuItem = NSMenuItem(title: "Save Browser Page", action: #selector(toggleBrowserPage), keyEquivalent: "")
+    private let notchMenuItem = NSMenuItem(title: "Show Identified Songs at Top of Screen", action: #selector(toggleNotch), keyEquivalent: "")
     private let toggleMenuItem = NSMenuItem(title: "", action: #selector(toggleListening), keyEquivalent: "")
     private let animateMenuItem = NSMenuItem(title: "Animate Beat", action: #selector(toggleAnimateBeat), keyEquivalent: "")
     private let showTrackMenuItem = NSMenuItem(title: "Show Track in Menu Bar", action: #selector(toggleShowTrack), keyEquivalent: "")
@@ -91,6 +94,11 @@ final class StatusItemController: NSObject {
         set { UserDefaults.standard.set(newValue, forKey: Self.browserPageKey) }
     }
 
+    private var showInNotch: Bool {
+        get { UserDefaults.standard.object(forKey: Self.notchKey) as? Bool ?? true }
+        set { UserDefaults.standard.set(newValue, forKey: Self.notchKey) }
+    }
+
     private var showTrack: Bool {
         get { UserDefaults.standard.bool(forKey: Self.showTrackKey) }
         set { UserDefaults.standard.set(newValue, forKey: Self.showTrackKey) }
@@ -122,7 +130,7 @@ final class StatusItemController: NSObject {
         sourceMenuItem.submenu = NSMenu()
         engine.target = savedTarget
         engine.identifyEnabled = identifyEnabled
-        for item in [toggleMenuItem, animateMenuItem, showTrackMenuItem, identifyMenuItem, browserPageMenuItem, loginMenuItem] {
+        for item in [toggleMenuItem, animateMenuItem, showTrackMenuItem, identifyMenuItem, notchMenuItem, browserPageMenuItem, loginMenuItem] {
             item.target = self
         }
         menu.addItem(trackMenuItem)
@@ -136,6 +144,7 @@ final class StatusItemController: NSObject {
         menu.addItem(animateMenuItem)
         menu.addItem(showTrackMenuItem)
         menu.addItem(identifyMenuItem)
+        menu.addItem(notchMenuItem)
         menu.addItem(browserPageMenuItem)
         menu.addItem(loginMenuItem)
         menu.addItem(.separator())
@@ -169,6 +178,7 @@ final class StatusItemController: NSObject {
             animateMenuItem.state = animateBeat ? .on : .off
             showTrackMenuItem.state = showTrack ? .on : .off
             identifyMenuItem.state = identifyEnabled ? .on : .off
+            notchMenuItem.state = showInNotch ? .on : .off
             browserPageMenuItem.state = saveBrowserPage ? .on : .off
             rebuildRecentMenu()
             rebuildSourceMenu()
@@ -191,6 +201,7 @@ final class StatusItemController: NSObject {
             shazamTrack = nil
             currentEntryID = nil
             currentEntryKey = nil
+            notchBanner.hide()
             store.saveNow()
         }
         render(engine.state)
@@ -200,6 +211,11 @@ final class StatusItemController: NSObject {
         identifyEnabled.toggle()
         engine.identifyEnabled = identifyEnabled
         render(engine.state)
+    }
+
+    @objc private func toggleNotch() {
+        showInNotch.toggle()
+        if !showInNotch { notchBanner.hide() }
     }
 
     @objc private func toggleBrowserPage() {
@@ -221,6 +237,8 @@ final class StatusItemController: NSObject {
         case .commit(let track):
             shazamTrack = track
             startEntry(for: track)
+            // Only confirmed matches; nothing is shown while a match is unsure or missing.
+            if showInNotch { notchBanner.show(track, bpm: model.bpm) }
         case .same(let track):
             // Another hearing (or another version) of the current song: just
             // fold it into the current entry, without asking the browser again.
@@ -430,6 +448,7 @@ final class StatusItemController: NSObject {
         trackMenuItem.isHidden = track == nil
         trackMenuItem.title = track?.displayName ?? ""
         model.trackTitle = showTrack && model.mode == .listening ? track?.displayName : nil
+        notchBanner.update(bpm: model.bpm)
 
         resizeStatusItem()
     }

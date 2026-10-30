@@ -61,6 +61,7 @@ targets:
       - Sonar/History/BrowserPage.swift
       - Sonar/Identify/MatchScheduler.swift
       - Sonar/Identify/SongMatching.swift
+      - Sonar/UI/NotchLayout.swift
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.karolisvanagas.sonar.tests
