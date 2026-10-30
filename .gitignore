@@ -1,0 +1,13 @@
+build/
+DerivedData/
+xcuserdata/
+.DS_Store
+
+# Signing material and secrets: never commit
+*.p12
+*.cer
+*.certSigningRequest
+*.mobileprovision
+*.provisionprofile
+*.p8
+.env

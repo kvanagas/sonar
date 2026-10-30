@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Ties the binary to its App ID so App Services like ShazamKit can authorise it.
+	     Requires an embedded provisioning profile, which Xcode's automatic signing creates. -->
+	<key>com.apple.application-identifier</key>
+	<string>XNZ6USZQ48.com.karolisvanagas.sonar</string>
+	<key>com.apple.developer.team-identifier</key>
+	<string>XNZ6USZQ48</string>
+	<!-- Hardened runtime blocks these unless declared: the system audio tap and
+	     asking players/browsers what's playing. -->
+	<key>com.apple.security.device.audio-input</key>
+	<true/>
+	<key>com.apple.security.automation.apple-events</key>
+	<true/>
+</dict>
+</plist>
