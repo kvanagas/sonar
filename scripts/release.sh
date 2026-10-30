@@ -39,8 +39,14 @@ notarize() {
 rm -rf "$OUT"
 mkdir -p "$OUT"
 
-step "Archiving Sonar $VERSION"
 xcodegen generate --quiet
+
+step "Running tests"
+xcodebuild test -quiet \
+    -project Sonar.xcodeproj -scheme Sonar -destination 'platform=macOS' \
+    -derivedDataPath "$DERIVED"
+
+step "Archiving Sonar $VERSION"
 xcodebuild archive -quiet \
     -project Sonar.xcodeproj -scheme Sonar -configuration Release \
     -archivePath "$ARCHIVE" -derivedDataPath "$DERIVED" -allowProvisioningUpdates
