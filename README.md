@@ -9,6 +9,8 @@
   Spotify, Apple Music, YouTube, SoundCloud, a DJ set in your browser: if you can hear it, Sonar can count it.
 </p>
 
+https://github.com/user-attachments/assets/f2145a0f-cda2-41e9-8f9a-2e2e5f8e5aa0
+
 <p align="center">
   <a href="https://github.com/kvanagas/sonar/releases/latest"><b>⬇ Download Sonar for Mac</b></a>
 </p>
